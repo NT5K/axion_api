@@ -1,5 +1,5 @@
 {
-  "name": "axion circulating supply api call",
+  "name": "axion_api",
   "version": "1.0.0",
   "description": "axion token public api for circulating supply",
   "main": "axion.js",

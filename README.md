@@ -14,3 +14,17 @@ web3<bf>
 `/circulating`<br>
 ### json endpoint
 `/circulating/json`
+
+
+## circulating supply web3 call
+```
+router.get('/circulating/json', (__, res) => {
+    contract.methods.totalSupply().call((__, totalSupply) => {
+        contract.methods.balanceOf(devWallet).call((__, devBalance) => {
+            res.send({
+                circulatingSupply: (totalSupply - devBalance) / decimals
+            })
+        })
+    })
+})
+```
