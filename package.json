@@ -1,0 +1,28 @@
+{
+  "name": "axion_api",
+  "version": "1.0.0",
+  "description": "axion token public api for circulating supply",
+  "main": "axion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NT5K/axion_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NT5K/axion_api/issues"
+  },
+  "homepage": "https://github.com/NT5K/axion_api#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "web3": "^1.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
