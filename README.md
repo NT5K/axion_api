@@ -11,9 +11,9 @@ web3<bf>
 
 ## endpoints
 ### html endpoint
-`/circulating`<br>
+<a href="https://axion-circulating-supply-api.herokuapp.com/circulating" target='_blank'>`/circulating`</a><br>
 ### json endpoint
-`/circulating/json`
+<a href="https://axion-circulating-supply-api.herokuapp.com/circulating/json" target='_blank'>`/circulating/json`</a>
 
 
 ## circulating supply web3 call
