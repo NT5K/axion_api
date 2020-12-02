@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Web3 = require("web3")
+const axios = require("axios")
 require('dotenv').config()
 
 
@@ -23,6 +24,8 @@ const devWallet = "0xe8b283b606a212d82036f74f88177375125440f6"
 // 18 decimal places
 const decimals = 1e18
 
+const priceURL = 'https://api.coingecko.com/api/v3/simple/price?ids=axion&vs_currencies=usd';
+
 
 // web3 call to axion contract for total supply and dev wallet balance and calculated circulating supply
 // front end display request in index.html
@@ -35,5 +38,32 @@ router.get('/circulating/json', (__, res) => {
         })
     })
 })
+
+router.get('/price', (__, res) => {
+    axios.get(priceURL).then(function (response) {
+        const { usd } = response.data.axion
+        console.log(response)
+        res.send({
+            currentPrice: usd
+        })
+    })
+});
+
+router.get('/marketcap', (__, res) => {
+    contract.methods.totalSupply().call((__, totalSupply) => {
+        contract.methods.balanceOf(devWallet).call((__, devBalance) => {
+            axios.get(priceURL).then(function (response) {
+                const { usd } = response.data.axion
+                const circ = (totalSupply - devBalance) / decimals
+                console.log(typeof(circ))
+                res.send({
+                    circulatingSupply: circ,
+                    price: usd,
+                    marketCap: circ * usd
+                })
+            })
+        })
+    })
+});
 
 module.exports = router;
